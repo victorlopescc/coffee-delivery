@@ -2,6 +2,7 @@ import { useTheme } from 'styled-components'
 import { CoffeeList, Hero, HeroContainer, HeroHeader, HeroInfo } from './styles'
 import { Coffee, Package, ShoppingCart, Timer } from '@phosphor-icons/react'
 import { coffees } from '../../../data.json'
+import { Card } from '../../components/Card'
 
 export function Home() {
   const theme = useTheme()
@@ -69,7 +70,7 @@ export function Home() {
           src="/images/hero-bg.svg"
           id="hero-bg"
           alt="Background"
-          style={{ filter: 'blur(50px)' }}
+          style={{ filter: 'blur(50px)', zIndex: -1 }}
         />
       </Hero>
 
@@ -78,7 +79,7 @@ export function Home() {
 
         <div>
           {coffees.map((coffee) => (
-            <p key={coffee.id}>{coffee.title}</p>
+            <Card key={coffee.id} coffee={coffee} />
           ))}
         </div>
       </CoffeeList>
